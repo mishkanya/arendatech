@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Arenda.Tech.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Arenda.Tech.Data
@@ -9,5 +10,6 @@ namespace Arenda.Tech.Data
             : base(options)
         {
         }
+        public DbSet<Product> Products { get; set; }   
     }
 }
