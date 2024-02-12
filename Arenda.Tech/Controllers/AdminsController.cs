@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Arenda.Tech.Data;
 using Arenda.Tech.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Arenda.Tech.Controllers
 {
+    [Authorize]
     public class AdminsController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -10,9 +10,11 @@ using Arenda.Tech.Models;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Arenda.Tech.Controllers
 {
+    [Authorize]
     public class ImagesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -39,15 +41,15 @@ namespace Arenda.Tech.Controllers
             }
 
             var images =  Directory.EnumerateFiles(path);
-            if (images.Any()) return View(images.Select(t => $"Uploads/{new FileInfo(t).Name}"));
+            if (images.Any()) return View(images.Select(t => new FileInfo(t).Name));
             else return Problem("Entity set 'ApplicationDbContext.Images'  is null.");
         }
 
         // GET: Images/Details/5
         // [Route("Images/Details/{name}")]
-        public async Task<IActionResult> Details(string name)
+        public async Task<IActionResult> Details(string id)
         {
-            var findName = name.Replace("%2F", "\\");
+            var findName = id.Replace("%2F", "/");
             string wwwPath = Environment.WebRootPath;
             string contentPath = this.Environment.ContentRootPath;
 
@@ -60,28 +62,7 @@ namespace Arenda.Tech.Controllers
             var files = Directory.EnumerateFiles(path);
             var images = files.FirstOrDefault(t => t.Contains(findName));
             if (images != null) 
-                return View(name);
-            else return NotFound();
-        }
-
-
-         [Route("Images/Info/{name}")]
-        public async Task<IActionResult> Info(string name)
-        {
-            var findName = name.Replace("%2F", "\\");
-            string wwwPath = Environment.WebRootPath;
-            string contentPath = this.Environment.ContentRootPath;
-
-            string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-
-            var files = Directory.EnumerateFiles(path);
-            var images = files.FirstOrDefault(t => t.Contains(findName));
-            if (images != null)
-                return View(name);
+                return View(model:id);
             else return NotFound();
         }
 
@@ -141,81 +122,51 @@ namespace Arenda.Tech.Controllers
             return View(image);
         }
 
-        // POST: Images/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Image image)
-        {
-            if (id != image.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(image);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ImageExists(image.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(image);
-        }
+        
 
         // GET: Images/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(string? id)
         {
-            if (id == null || _context.Images == null)
+            var findName = id.Replace("%2F", "/");
+            string wwwPath = Environment.WebRootPath;
+            string contentPath = this.Environment.ContentRootPath;
+
+            string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+            if (!Directory.Exists(path))
             {
-                return NotFound();
+                Directory.CreateDirectory(path);
             }
 
-            var image = await _context.Images
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (image == null)
-            {
-                return NotFound();
-            }
-
-            return View(image);
+            var files = Directory.EnumerateFiles(path);
+            var images = files.FirstOrDefault(t => t.Contains(findName));
+            if (images != null)
+                return View(model: id);
+            else return NotFound();
         }
 
         // POST: Images/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            if (_context.Images == null)
-            {
-                return Problem("Entity set 'ApplicationDbContext.Images'  is null.");
-            }
-            var image = await _context.Images.FindAsync(id);
-            if (image != null)
-            {
-                _context.Images.Remove(image);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+            var findName = id.Replace("%2F", "/");
+            string wwwPath = Environment.WebRootPath;
+            string contentPath = this.Environment.ContentRootPath;
 
-        private bool ImageExists(int id)
-        {
-          return (_context.Images?.Any(e => e.Id == id)).GetValueOrDefault();
+            string path = Path.Combine(this.Environment.WebRootPath, "Uploads");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string filePath = Path.Combine(path, (string)id);
+
+            try
+            {
+                System.IO.File.Delete(filePath);
+            }
+            catch { }
+                return RedirectToAction(nameof(Index));
+
         }
     }
 }

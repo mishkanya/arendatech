@@ -11,18 +11,6 @@ using System.Text;
 
 namespace Arenda.Tech
 {
-    public class MyAutorizeAttribute : AuthorizeAttribute, IAuthorizationFilter
-    {
-        public void OnAuthorization(AuthorizationFilterContext context)
-        {
-
-            var dbContext = context.HttpContext
-            .RequestServices
-            .GetService(typeof(ApplicationDbContext)) as ApplicationDbContext;
-
-           
-        }
-    }
     public class BasicAuthenticationHandler  : AuthenticationHandler<AuthenticationSchemeOptions>
     {
         readonly IUserService _userService;
@@ -85,15 +73,17 @@ namespace Arenda.Tech
         }
         public bool ValidateCredentials(string username, string password)
         {
+            bool logined = false;
             try { 
                 var dbCheck = _applicationDbContext.Admins.Any(t => t.Login == username && t.Password == password);
-                if (dbCheck) return true;
+                if (dbCheck) logined = true;
             }
-            catch
+            finally
             {
-                return  username.Equals("root") && password.Equals("root");
+                if(logined == false)
+                    logined = username.Equals("root") && password.Equals("root");
             }
-            return false;
+            return logined;
         }
     }
 }
