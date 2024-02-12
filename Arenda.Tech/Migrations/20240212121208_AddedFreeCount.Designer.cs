@@ -3,6 +3,7 @@ using System;
 using Arenda.Tech.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,30 +11,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Arenda.Tech.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240212121208_AddedFreeCount")]
+    partial class AddedFreeCount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.26");
-
-            modelBuilder.Entity("Arenda.Tech.Models.Admin", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Login")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Admins");
-                });
 
             modelBuilder.Entity("Arenda.Tech.Models.Product", b =>
                 {

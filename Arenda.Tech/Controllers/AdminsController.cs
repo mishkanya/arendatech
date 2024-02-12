@@ -7,96 +7,90 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Arenda.Tech.Data;
 using Arenda.Tech.Models;
-using Microsoft.AspNetCore.Authorization;
-using System.Net;
 
 namespace Arenda.Tech.Controllers
 {
-    [Authorize]
-    public class ProductsController : Controller
+    public class AdminsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ProductsController(ApplicationDbContext context)
+        public AdminsController(ApplicationDbContext context)
         {
             _context = context;
-            //HttpContext.Response?.Clear();
-            //HttpContext.Response.StatusCode = (Int32)HttpStatusCode.Unauthorized;
-            //HttpContext.Response?.Headers.Add("WWW-Authenticate", "Basic");
         }
 
-        // GET: Products
+        // GET: Admins
         public async Task<IActionResult> Index()
         {
-              return _context.Products != null ? 
-                          View(await _context.Products.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Products'  is null.");
+              return _context.Admins != null ? 
+                          View(await _context.Admins.ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Admins'  is null.");
         }
 
-        // GET: Products/Details/5
+        // GET: Admins/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Products == null)
+            if (id == null || _context.Admins == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products
+            var admin = await _context.Admins
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            if (admin == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(admin);
         }
 
-        // GET: Products/Create
+        // GET: Admins/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Products/Create
+        // POST: Admins/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ShortDescription,Description,Price,OldPrice,Images,Type,Rating,PreviewVideoLink, FreeCount")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Login,Password")] Admin admin)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                _context.Add(admin);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(admin);
         }
 
-        // GET: Products/Edit/5
+        // GET: Admins/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Products == null)
+            if (id == null || _context.Admins == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products.FindAsync(id);
-            if (product == null)
+            var admin = await _context.Admins.FindAsync(id);
+            if (admin == null)
             {
                 return NotFound();
             }
-            return View(product);
+            return View(admin);
         }
 
-        // POST: Products/Edit/5
+        // POST: Admins/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ShortDescription,Description,Price,OldPrice,Images,Type,Rating,PreviewVideoLink, FreeCount")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Login,Password")] Admin admin)
         {
-            if (id != product.Id)
+            if (id != admin.Id)
             {
                 return NotFound();
             }
@@ -105,12 +99,12 @@ namespace Arenda.Tech.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    _context.Update(admin);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.Id))
+                    if (!AdminExists(admin.Id))
                     {
                         return NotFound();
                     }
@@ -121,49 +115,49 @@ namespace Arenda.Tech.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(admin);
         }
 
-        // GET: Products/Delete/5
+        // GET: Admins/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Products == null)
+            if (id == null || _context.Admins == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Products
+            var admin = await _context.Admins
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            if (admin == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(admin);
         }
 
-        // POST: Products/Delete/5
+        // POST: Admins/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Products == null)
+            if (_context.Admins == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Products'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Admins'  is null.");
             }
-            var product = await _context.Products.FindAsync(id);
-            if (product != null)
+            var admin = await _context.Admins.FindAsync(id);
+            if (admin != null)
             {
-                _context.Products.Remove(product);
+                _context.Admins.Remove(admin);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(int id)
+        private bool AdminExists(int id)
         {
-          return (_context.Products?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Admins?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

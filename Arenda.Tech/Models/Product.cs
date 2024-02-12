@@ -3,6 +3,7 @@ using System.Xml.Linq;
 
 namespace Arenda.Tech.Models
 {
+    
     public class Product
     {
         [Required]
@@ -10,14 +11,14 @@ namespace Arenda.Tech.Models
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Название продукта")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Краткое описание продукта")]
-        public string ShortDescription { get; set; }
+        public string? ShortDescription { get; set; }
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Описание продукта")]
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Цена продукта")]
@@ -27,11 +28,11 @@ namespace Arenda.Tech.Models
         public double? OldPrice { get; set; }
 
         [Display(Name = "Изображение продукта")]
-        public string Images { get; set; }
+        public string? Images { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Тип продукта")]
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Рэйтинг курса")]
@@ -39,6 +40,10 @@ namespace Arenda.Tech.Models
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Вступительное видео ссылка")]
-        public string PreviewVideoLink { get; set; }
+        public string? PreviewVideoLink { get; set; }
+
+        [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
+        [Display(Name = "Количество свободных позиций")]
+        public int FreeCount { get; set; }
     }
 }

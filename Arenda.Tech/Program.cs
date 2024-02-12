@@ -1,13 +1,13 @@
 using Arenda.Tech.Data;
+using Microsoft.AspNetCore.Authentication.Negotiate;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication;
+using Arenda.Tech;
 
 var builder = WebApplication.CreateBuilder(args);
-
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-
 
 var folder = Environment.SpecialFolder.LocalApplicationData;
 var path = Environment.GetFolderPath(folder);
@@ -16,9 +16,24 @@ var dbPath = System.IO.Path.Join(path, "blogging.db");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath}"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddAuthentication("BasicAuthentication")
+    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-//    .AddEntityFrameworkStores<ApplicationDbContext>();
+//builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
+//   .AddNegotiate(options => {
+//       options.Events = new NegotiateEvents
+//       {
+
+//           OnAuthenticated = authData =>
+//           {
+//               Console.WriteLine($"body: {new StreamReader(authData.Request.Body).ReadToEndAsync().Result}\n" +
+//                   $"header: {authData.Request}\n"
+//               );
+//               return Task.CompletedTask;
+//           }
+//       };
+//   });
 
 builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
 builder.Services.AddRazorPages();
