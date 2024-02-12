@@ -36,6 +36,7 @@ namespace Arenda.Tech.Models
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Рэйтинг курса")]
         public double Rating { get; set; }
+
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Вступительное видео ссылка")]
         public string PreviewVideoLink { get; set; }
