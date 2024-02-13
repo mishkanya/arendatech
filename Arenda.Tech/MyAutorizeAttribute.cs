@@ -8,6 +8,8 @@ using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 using System.Text;
+using System.Linq;
+using Microsoft.Extensions.Logging;
 
 namespace Arenda.Tech
 {
@@ -25,6 +27,8 @@ namespace Arenda.Tech
         {
             _userService = userService;
         }
+
+        
 
         protected override Task HandleChallengeAsync(AuthenticationProperties properties)
         {
@@ -53,11 +57,18 @@ namespace Arenda.Tech
             var claims = new[] {
                 new Claim(ClaimTypes.Name, username)
             };
+
+
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);
             var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-            return AuthenticateResult.Success(ticket);
+            Logger.LogDebug(ticket.AuthenticationScheme);
+            Logger.LogDebug(ticket.AuthenticationScheme);
+
+            var t = AuthenticateResult.Success(ticket);
+            return t;
+
         }
     }
     public interface IUserService
@@ -74,14 +85,17 @@ namespace Arenda.Tech
         public bool ValidateCredentials(string username, string password)
         {
             bool logined = false;
-            try { 
+            try 
+            { 
                 var dbCheck = _applicationDbContext.Admins.Any(t => t.Login == username && t.Password == password);
-                if (dbCheck) logined = true;
+                if (dbCheck) 
+                    logined = true;
             }
             finally
             {
                 if(logined == false)
-                    logined = username.Equals("root") && password.Equals("root");
+                    if(_applicationDbContext.Admins.Any() == false)
+                        logined = username.Equals("root") && password.Equals("root");
             }
             return logined;
         }

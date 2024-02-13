@@ -6,6 +6,14 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication;
 using Arenda.Tech;
+using System.Diagnostics;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Principal;
+using Microsoft.Extensions.Options;
+using System.Net.Http.Headers;
+using Arenda.Tech.Models;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +23,10 @@ var dbPath = System.IO.Path.Join(path, "blogging.db");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite($"Data Source={dbPath}"));
+
+
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
@@ -62,6 +73,13 @@ app.UseAuthorization();
 app.MapRazorPages();
 app.MapControllers();
 builder.Services.AddControllersWithViews();
+
+
+app.MapPost("/logon", (HttpContext context, BasicAuthenticationHandler s) =>
+{
+    return Results.Unauthorized();
+});
+
 
 app.UseMvc(routes =>
 {
