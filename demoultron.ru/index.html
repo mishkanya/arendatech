@@ -1,12 +1,12 @@
-﻿  <!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Прокат инструмента</title>
-    <meta name="description" content="">
-    <meta name="keywords" content="">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
     
     <!-- Традиционная иконка сайта, размер 16x16, прозрачность поддерживается. Рекомендуемый формат: .ico -->
     <!--<link rel="shortcut icon" href="favicon.ico" />-->
@@ -15,22 +15,21 @@
     <!--<link rel="apple-touch-icon" href="apple-touch-icon.png" />-->
     
     <!-- Подключаем Нестандартные шрифты -->
-   
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i|Ubuntu:300,300i,400,400i,500,500i,700,700i&amp;subset=cyrillic-ext" rel="stylesheet">
     
     <!-- Подключаем файлы стилей -->
-    
     <link href="css/reset.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/jquery.fancybox.css" rel="stylesheet">
-   
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link href="css/style.css" rel="stylesheet">
     
 </head>
 <body>
     <!--div class="preloader"></div-->
-    <a href="#header" class="btn-up"><i class="fa fa-angle-up"></i></a>
+    <span href="#" class="btn-up"><i class="fa fa-angle-up"></i></span>
     <header id="header">
         <div class="header-top hidden-xs">
             <div class="container">
@@ -49,7 +48,7 @@
         
         <div class="header-btm">
             <div class="container">
-                <a href="https://demoultron.ru/" class="logo"><img src="images/logo.png" alt=""></a>
+                <a href="/" class="logo"><img src="images/logo.png" alt=""></a>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-menu-burger"><span class="icon-menu-burger__line"></span></span></button>
                 <div class="navbar-collapse collapse">
                     <div class="header-top hidden-sm hidden-md hidden-lg">
@@ -78,62 +77,36 @@
     </header>
     <div class="header-push"></div>
     
-    <section class="top-slider slick-initialized slick-slider">
-        
-        
-        <div aria-live="polite" class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 5144px; transform: translate3d(-1286px, 0px, 0px);" role="listbox"><div class="item slick-slide slick-cloned" style="width: 1286px;" data-slick-index="-1" aria-hidden="true" tabindex="-1">
-                <div class="element" style="background: url(images/main-slider2.jpg) 50% 0 no-repeat; background-size: cover;">
-                    <div class="table">
-                        <div class="table-cell">
-                            <div class="container">
-                                <div class="sup-title">всё для слесаря, сантехника, электрика, ручной инструмент</div>
-                                <div class="title">Степлер мебельный, регулируемый</div>
-                                <div class="sub-title">В сутки - <b>50 р.</b></div>
-                                <a href="#formApplication" class="fancyboxModal btn btn-green" data-theme="Степлер мебельный, регулируемый" tabindex="-1">Взять на прокат</a>
-                            </div>
+    <section class="top-slider">
+        <div class="item">
+            <div class="element" style="background: url(images/main-slider1.jpg) left 0 no-repeat; background-size: cover;">
+                <div class="table">
+                    <div class="table-cell">
+                        <div class="container">
+                            <div class="sup-title">Зачем покупать? Возьми на время!</div>
+                            <div class="title">Перфоратор Bosch 1150 Вт</div>
+                            <div class="sub-title">В сутки от <b>1000 р.</b></div>
+                            <a href="#formApplication" class="fancyboxModal btn btn-green" data-theme="Перфоратор GBH 5-40 DCE 1150 Вт 8,8 Дж, SDS-max, Bosch">Взять на прокат</a>
                         </div>
                     </div>
                 </div>
-            </div><div class="item slick-slide slick-current slick-active" style="width: 1286px;" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00">
-                <div class="element" style="background: url(images/main-slider1.jpg) left 0 no-repeat; background-size: cover;">
-                    <div class="table">
-                        <div class="table-cell">
-                            <div class="container">
-                                <div class="sup-title">Зачем покупать? Возьми на время!</div>
-                                <div class="title">Перфоратор Bosch 1150 Вт</div>
-                                <div class="sub-title">В сутки от <b>1000 р.</b></div>
-                                <a href="#formApplication" class="fancyboxModal btn btn-green" data-theme="Перфоратор GBH 5-40 DCE 1150 Вт 8,8 Дж, SDS-max, Bosch" tabindex="0">Взять на прокат</a>
-                            </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="element" style="background: url(images/main-slider2.jpg) 50% 0 no-repeat; background-size: cover;">
+                <div class="table">
+                    <div class="table-cell">
+                        <div class="container">
+                            <div class="sup-title">всё для слесаря, сантехника, электрика, ручной инструмент</div>
+                            <div class="title">Степлер мебельный, регулируемый</div>
+                            <div class="sub-title">В сутки - <b>50 р.</b></div>
+                            <a href="#formApplication" class="fancyboxModal btn btn-green" data-theme="Степлер мебельный, регулируемый">Взять на прокат</a>
                         </div>
                     </div>
                 </div>
-            </div><div class="item slick-slide" style="width: 1286px;" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01">
-                <div class="element" style="background: url(images/main-slider2.jpg) 50% 0 no-repeat; background-size: cover;">
-                    <div class="table">
-                        <div class="table-cell">
-                            <div class="container">
-                                <div class="sup-title">всё для слесаря, сантехника, электрика, ручной инструмент</div>
-                                <div class="title">Степлер мебельный, регулируемый</div>
-                                <div class="sub-title">В сутки - <b>50 р.</b></div>
-                                <a href="#formApplication" class="fancyboxModal btn btn-green" data-theme="Степлер мебельный, регулируемый" tabindex="-1">Взять на прокат</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><div class="item slick-slide slick-cloned" style="width: 1286px;" data-slick-index="2" aria-hidden="true" tabindex="-1">
-                <div class="element" style="background: url(images/main-slider1.jpg) left 0 no-repeat; background-size: cover;">
-                    <div class="table">
-                        <div class="table-cell">
-                            <div class="container">
-                                <div class="sup-title">Зачем покупать? Возьми на время!</div>
-                                <div class="title">Перфоратор Bosch 1150 Вт</div>
-                                <div class="sub-title">В сутки от <b>1000 р.</b></div>
-                                <a href="#formApplication" class="fancyboxModal btn btn-green" data-theme="Перфоратор GBH 5-40 DCE 1150 Вт 8,8 Дж, SDS-max, Bosch" tabindex="-1">Взять на прокат</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div></div></div></section>
+            </div>
+        </div>
+    </section>
     
     <section id="timer-container" class="timer-container">
         <div class="container">
@@ -141,7 +114,7 @@
                 <div class="push30 visible-xs visible-sm"></div>
                 <div class="inner">
                     <h2 class="title-border"><span class="txt"><span>на все выходные скидка 15%</span></span></h2>
-                    Успей взять инструмент в аренду на выходные и праздничные дни и гарантированно <br>
+                    Успей взять инструмент в аренду на выходные и праздничные дни и гарантированно <br />
                     получить скидку 15% на любой инструмент!
                     <div class="countdown-inner">
                         <div id="countdown"></div>
@@ -159,9 +132,9 @@
                             </div>
                             <input type="submit" class="btn btn-black feedback" value="Отправить">
                             <div class="clear"></div>
-                            <br><br>
+                            <br /><br />
                             <div class="customcheck">
-                                <input type="checkbox" class="required" id="agree1"> 
+                                <input type="checkbox" class="required" id="agree1" /> 
                                 <label for="agree1">даю согласие на обработку и хранение персональных данных</label>
                             </div>
                         </form>
@@ -220,16 +193,16 @@
     <section id="dealer" class="dealer-continer">
         <div class="container">
             <h2 class="text-right-center white">
-                Прокат инструмента осуществляется согласно договора в соответствии <br>
+                Прокат инструмента осуществляется согласно договора в соответствии <br />
                 с действующим законодательством.
             </h2>
-            <br>
+            <br />
             <p> 
-                Всё представленное на сайте оборудованиеотносится к разряду строительного инструмента, и может использоваться<br>
-                бригадами и частными лицами для строительства и ремонта жилых <br>
+                Всё представленное на сайте оборудованиеотносится к разряду строительного инструмента, и может использоваться<br />
+                бригадами и частными лицами для строительства и ремонта жилых <br />
                 и нежилых помещений.
             </p>
-            <br>
+            <br />
             <div class="manager">
                 <div class="photo">
                     <img src="images/manager-photo.png" alt="">
@@ -257,7 +230,7 @@
                 <div class="push30"></div>
                 <div class="list row">
                     <div class="filtr-container">
-                        <div class="col-md-4 col-sm-6 mix category1" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category1">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 200 р. | Залог: 2400 р.</div><img src="images/product1.jpg">
@@ -272,7 +245,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category1" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category1">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 400 р. | Залог: 3400 р.</div><img src="images/product2.jpg">
@@ -287,7 +260,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category1" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category1">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 500 р. | Залог: 3600 р.</div><img src="images/product3.jpg">
@@ -302,7 +275,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category2" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category2">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 300 р. | Залог: 2500 р.</div><img src="images/product4.jpg">
@@ -317,7 +290,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category2" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category2">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 200 р. | Залог: 1400 р.</div><img src="images/product5.jpg">
@@ -332,7 +305,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category2" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category2">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 200 р. | Залог: 2400 р.</div><img src="images/product6.jpg">
@@ -347,7 +320,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category3" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category3">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 200 р. | Залог: 2000 р.</div><img src="images/product7.jpg">
@@ -362,7 +335,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category3" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category3">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 500 р. | Залог: 1500 р.</div><img src="images/product8.jpg">
@@ -377,7 +350,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category3" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category3">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 400 р. | Залог: 2300 р.</div><img src="images/product9.jpg">
@@ -392,7 +365,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category3" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category3">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 700 р. | Залог: 3400 р.</div><img src="images/product10.jpg">
@@ -407,7 +380,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category3" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category3">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 700 р. | Залог: 3400 р.</div><img src="images/product11.jpg">
@@ -422,7 +395,7 @@
                             </div> <!-- end item -->
                         </div>
                         
-                        <div class="col-md-4 col-sm-6 mix category3" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category3">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 300 р. | Залог: 1800 р.</div><img src="images/product12.jpg">
@@ -438,7 +411,7 @@
                         </div>
                         
                         
-                        <div class="col-md-4 col-sm-6 mix category4" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category4">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 500 р. | Залог: 3000 р.</div><img src="images/product13.jpg">
@@ -452,7 +425,7 @@
                                 <div class="btm"><a href="#formApplication" class="fancyboxModal" data-theme="Миксер HITACHI UM 16VST">Арендовать</a></div>
                             </div> <!-- end item -->
                         </div>
-                        <div class="col-md-4 col-sm-6 mix category4" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category4">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 3000 р. | Залог: 30000 р.</div><img src="images/product14.jpg">
@@ -466,7 +439,7 @@
                                 <div class="btm"><a href="#formApplication" class="fancyboxModal" data-theme="Резчик Husqvarna K3000 EL 14 (VAC)">Арендовать</a></div>
                             </div> <!-- end item -->
                         </div>
-                        <div class="col-md-4 col-sm-6 mix category4" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category4">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 700 р. | Залог: 4800 р.</div><img src="images/product15.jpg">
@@ -482,7 +455,7 @@
                         </div>
                         
                         
-                        <div class="col-md-4 col-sm-6 mix category5" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category5">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 1200 р. | Залог: 3000 р.</div><img src="images/product16.jpg">
@@ -496,7 +469,7 @@
                                 <div class="btm"><a href="#formApplication" class="fancyboxModal" data-theme="Бензиновая электростанция FUBAG BS 6600 DA ES">Арендовать</a></div>
                             </div> <!-- end item -->
                         </div>
-                        <div class="col-md-4 col-sm-6 mix category5" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category5">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 1200 р. | Залог: 3000 р.</div><img src="images/product17.jpg">
@@ -510,7 +483,7 @@
                                 <div class="btm"><a href="#formApplication" class="fancyboxModal" data-theme="Бензиновый Генератор Makita EG 4550A">Арендовать</a></div>
                             </div> <!-- end item -->
                         </div>
-                        <div class="col-md-4 col-sm-6 mix category5" style="display: inline-block;" data-bound="">
+                        <div class="col-md-4 col-sm-6 mix category5">
                             <div class="item">
                                 <div class="pict">
                                     <div class="price">Цена: 900 р. | Залог: 1000 р.</div><img src="images/product18.jpg">
@@ -526,7 +499,7 @@
                         </div>
                     </div>
                 
-                </div>
+                </div> <!-- end list -->
             
             </div>
             
@@ -540,7 +513,7 @@
                 <div class="ttl">Все не то?</div>
                 <h3 class="title">Нужно что-то <span>особенное?</span></h3>
                 На нашем складе намного больше того, что мы можем вам показать. Позвоните нам или<br> оставьте свой номер телефона, и мы поможем вам выбрать то, что нужно.
-                <a href="index.html#callback" class="btn btn-transparent fancyboxModal">Оставить заявку</a>
+                <a href="#callback" class="btn btn-transparent fancyboxModal">Оставить заявку</a>
             </div> <!-- end inner -->
         </div> <!-- end container -->
     </section> <!-- end leave-request-container -->
@@ -551,40 +524,18 @@
             <h2 class="title-border trasnparent "><span class="txt"><span>Популярные инструменты</span></span></h2>
             С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому<br> кругу (специалистов) участие в формировании систем массового участия.
         </div> <!-- end container -->
-        <div class="carousel clearfix slick-initialized slick-slider">
-            <div aria-live="polite" class="slick-list draggable" style="padding: 0px;"><div class="slick-track" style="opacity: 1; width: 6006px; transform: translate3d(-2574px, 0px, 0px);" role="listbox"><div class="slick-slide slick-cloned" data-slick-index="-4" aria-hidden="true" style="width: 429px;" tabindex="-1"><img src="images/premium3.jpg"></div><div class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" style="width: 429px;" tabindex="-1"><img src="images/premium4.jpg"></div><div class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 429px;" tabindex="-1"><img src="images/premium5.jpg"></div><div class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 429px;" tabindex="-1"><img src="images/premium6.jpg"></div><div class="slick-slide" data-slick-index="0" aria-hidden="true" style="width: 429px;" tabindex="-1" role="option" aria-describedby="slick-slide10"><img src="images/premium1.jpg"></div><div class="slick-slide" data-slick-index="1" aria-hidden="true" style="width: 429px;" tabindex="-1" role="option" aria-describedby="slick-slide11"><img src="images/premium2.jpg"></div><div class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" style="width: 429px;" tabindex="-1" role="option" aria-describedby="slick-slide12"><img src="images/premium3.jpg"></div><div class="slick-slide slick-current slick-active slick-center" data-slick-index="3" aria-hidden="false" style="width: 429px;" tabindex="-1" role="option" aria-describedby="slick-slide13"><img src="images/premium4.jpg"></div><div class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" style="width: 429px;" tabindex="-1" role="option" aria-describedby="slick-slide14"><img src="images/premium5.jpg"></div><div class="slick-slide" data-slick-index="5" aria-hidden="true" style="width: 429px;" tabindex="-1" role="option" aria-describedby="slick-slide15"><img src="images/premium6.jpg"></div><div class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 429px;" tabindex="-1"><img src="images/premium1.jpg"></div><div class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 429px;" tabindex="-1"><img src="images/premium2.jpg"></div><div class="slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" style="width: 429px;" tabindex="-1"><img src="images/premium3.jpg"></div><div class="slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" style="width: 429px;" tabindex="-1"><img src="images/premium4.jpg"></div></div></div>
-            
-            
-            
-            
-            
+        <div class="carousel clearfix">
+            <div><img src="images/premium1.jpg"></div>
+            <div><img src="images/premium2.jpg"></div>
+            <div><img src="images/premium3.jpg"></div>
+            <div><img src="images/premium4.jpg"></div>
+            <div><img src="images/premium5.jpg"></div>
+            <div><img src="images/premium6.jpg"></div>
         </div> <!-- end carousel -->
         <div class="container">
-            <div class="carousel-info slick-initialized slick-slider"><button type="button" data-role="none" class="slick-prev slick-arrow" aria-label="Previous" role="button" style="display: block;">Previous</button>
+            <div class="carousel-info">
             
-                <div aria-live="polite" class="slick-list draggable" style="padding: 0px; height: 227px;"><div class="slick-track" style="opacity: 1; width: 11700px; transform: translate3d(-5850px, 0px, 0px);" role="listbox"><div class="item slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                    <div class="price">800 руб/сутки</div>
-                    <div class="marka">Бензиновый генератор Fubag HS 2500</div>
-                    <ul>
-                        <li>1000 Вт.</li>
-                        <li>1000 об./мин.</li>
-                        <li>Плавный пуск: есть</li>
-                        <li>Длина кабеля: 2.5 м.</li>
-                        <li>Вес: 2.3 кг.</li>
-                    </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Бензиновый генератор Fubag HS 2500" tabindex="-1">Взять в аренду</a>
-                </div><div class="item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                    <div class="price">300 руб/сутки</div>
-                    <div class="marka">Лобзик Bosch 4350 FCT</div>
-                    <ul>
-                        <li>1000 Вт.</li>
-                        <li>1000 об./мин.</li>
-                        <li>Плавный пуск: есть</li>
-                        <li>Длина кабеля: 2.5 м.</li>
-                        <li>Вес: 2.3 кг.</li>
-                    </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Лобзик Bosch 4350 FCT" tabindex="-1">Взять в аренду</a>
-                </div><div class="item slick-slide" data-slick-index="0" aria-hidden="true" style="width: 1170px;" tabindex="-1" role="option" aria-describedby="slick-slide20">
+                <div class="item">
                     <div class="price">600 руб/сутки</div>
                     <div class="marka">Дисковая пила Makita 5704R</div>
                     <ul>
@@ -594,8 +545,10 @@
                         <li>Длина кабеля: 2.5 м.</li>
                         <li>Вес: 2.3 кг.</li>
                     </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Дисковая пила Makita 5704R" tabindex="-1">Взять в аренду</a>
-                </div><div class="item slick-slide" data-slick-index="1" aria-hidden="true" style="width: 1170px;" tabindex="-1" role="option" aria-describedby="slick-slide21">
+                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Дисковая пила Makita 5704R">Взять в аренду</a>
+                </div> <!-- end item -->
+                
+                <div class="item">
                     <div class="price">400 руб/сутки</div>
                     <div class="marka">УШМ Bosch GWS 22-180 LVI</div>
                     <ul>
@@ -605,8 +558,10 @@
                         <li>Длина кабеля: 2.5 м.</li>
                         <li>Вес: 2.3 кг.</li>
                     </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="УШМ Bosch GWS 22-180 LVI" tabindex="-1">Взять в аренду</a>
-                </div><div class="item slick-slide" data-slick-index="2" aria-hidden="true" style="width: 1170px;" tabindex="-1" role="option" aria-describedby="slick-slide22">
+                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="УШМ Bosch GWS 22-180 LVI">Взять в аренду</a>
+                </div> <!-- end item -->
+                
+                <div class="item">
                     <div class="price">500 руб/сутки</div>
                     <div class="marka">Акумуляторний шуруповерт BOSCH PSR 12</div>
                     <ul>
@@ -616,8 +571,10 @@
                         <li>Длина кабеля: 2.5 м.</li>
                         <li>Вес: 2.3 кг.</li>
                     </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Акумуляторний шуруповерт BOSCH PSR 12" tabindex="-1">Взять в аренду</a>
-                </div><div class="item slick-slide slick-current slick-active slick-center" data-slick-index="3" aria-hidden="false" style="width: 1170px;" tabindex="-1" role="option" aria-describedby="slick-slide23">
+                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Акумуляторний шуруповерт BOSCH PSR 12">Взять в аренду</a>
+                </div> <!-- end item -->
+                
+                <div class="item">
                     <div class="price">700 руб/сутки</div>
                     <div class="marka">Бетономешалка Patriot BM 126C</div>
                     <ul>
@@ -627,8 +584,10 @@
                         <li>Длина кабеля: 2.5 м.</li>
                         <li>Вес: 2.3 кг.</li>
                     </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Бетономешалка Patriot BM 126C" tabindex="0">Взять в аренду</a>
-                </div><div class="item slick-slide" data-slick-index="4" aria-hidden="true" style="width: 1170px;" tabindex="-1" role="option" aria-describedby="slick-slide24">
+                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Бетономешалка Patriot BM 126C">Взять в аренду</a>
+                </div> <!-- end item -->
+                
+                <div class="item">
                     <div class="price">800 руб/сутки</div>
                     <div class="marka">Бензиновый генератор Fubag HS 2500</div>
                     <ul>
@@ -638,8 +597,10 @@
                         <li>Длина кабеля: 2.5 м.</li>
                         <li>Вес: 2.3 кг.</li>
                     </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Бензиновый генератор Fubag HS 2500" tabindex="-1">Взять в аренду</a>
-                </div><div class="item slick-slide" data-slick-index="5" aria-hidden="true" style="width: 1170px;" tabindex="-1" role="option" aria-describedby="slick-slide25">
+                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Бензиновый генератор Fubag HS 2500">Взять в аренду</a>
+                </div> <!-- end item -->
+                
+                <div class="item">
                     <div class="price">300 руб/сутки</div>
                     <div class="marka">Лобзик Bosch 4350 FCT</div>
                     <ul>
@@ -649,44 +610,13 @@
                         <li>Длина кабеля: 2.5 м.</li>
                         <li>Вес: 2.3 кг.</li>
                     </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Лобзик Bosch 4350 FCT" tabindex="-1">Взять в аренду</a>
-                </div><div class="item slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                    <div class="price">600 руб/сутки</div>
-                    <div class="marka">Дисковая пила Makita 5704R</div>
-                    <ul>
-                        <li>1000 Вт.</li>
-                        <li>1000 об./мин.</li>
-                        <li>Плавный пуск: есть</li>
-                        <li>Длина кабеля: 2.5 м.</li>
-                        <li>Вес: 2.3 кг.</li>
-                    </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Дисковая пила Makita 5704R" tabindex="-1">Взять в аренду</a>
-                </div><div class="item slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" style="width: 1170px;" tabindex="-1">
-                    <div class="price">400 руб/сутки</div>
-                    <div class="marka">УШМ Bosch GWS 22-180 LVI</div>
-                    <ul>
-                        <li>1000 Вт.</li>
-                        <li>1000 об./мин.</li>
-                        <li>Плавный пуск: есть</li>
-                        <li>Длина кабеля: 2.5 м.</li>
-                        <li>Вес: 2.3 кг.</li>
-                    </ul>
-                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="УШМ Bosch GWS 22-180 LVI" tabindex="-1">Взять в аренду</a>
-                </div></div></div> <!-- end item -->
-                
-                 <!-- end item -->
-                
-                 <!-- end item -->
-                
-                 <!-- end item -->
-                
-                 <!-- end item -->
-                
-                 <!-- end item -->
+                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Лобзик Bosch 4350 FCT">Взять в аренду</a>
+                </div> <!-- end item -->
             
-            <button type="button" data-role="none" class="slick-next slick-arrow" aria-label="Next" role="button" style="display: block;">Next</button></div> <!-- end carousel-info -->
+            </div> <!-- end carousel-info -->
         </div> <!-- end container -->
-    </section>
+    </section> <!-- end premium-container -->
+    
     <section class="indicators-container">
         <div class="container">
             <div class="row">
@@ -713,13 +643,13 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="pict">
-                                <a href="index.html#info1" class="absolute fancyboxModal"></a>
+                                <a href="#info1" class="absolute fancyboxModal"></a>
                                 <img src="images/info-pict1.jpg">
                                 <div class="element-content text-center">
                                     <div class="table">
                                         <div class="table-cell">
                                             <div class="img-wrapper">
-                                                <img src="images/info-icon1.png">
+                                                <img src="images/info-icon1.png" />
                                             </div>
                                             <div class="title">Условия аренды</div>
                                         </div>
@@ -762,13 +692,13 @@
                                 
                             </div>
                             <div class="pict">
-                                <a href="index.html#info2" class="absolute fancyboxModal"></a>
+                                <a href="#info2" class="absolute fancyboxModal"></a>
                                 <img src="images/info-pict2.jpg">
                                 <div class="element-content text-center">
                                     <div class="table">
                                         <div class="table-cell">
                                             <div class="img-wrapper">
-                                                <img src="images/info-icon2.png">
+                                                <img src="images/info-icon2.png" />
                                             </div>
                                             <div class="title">Техника безопасности</div>
                                         </div>
@@ -826,13 +756,13 @@
                         <div class="col-sm-6">
                             <div class="push25 visible-xs"></div>
                             <div class="pict">
-                                <a href="index.html#info3" class="absolute fancyboxModal"></a>
+                                <a href="#info3" class="absolute fancyboxModal"></a>
                                 <img src="images/info-pict3.jpg">
                                 <div class="element-content text-center">
                                     <div class="table">
                                         <div class="table-cell">
                                             <div class="img-wrapper">
-                                                <img src="images/info-icon3.png">
+                                                <img src="images/info-icon3.png" />
                                             </div>
                                             <div class="title">О нашей компании</div>
                                         </div>
@@ -971,19 +901,49 @@
             </div>
         </div> <!-- end container -->
         <div id="map"></div>
-        
-       
+        <script src="https://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+        <script type="text/javascript">
+            ymaps.ready(function () {
+                var mapexMap = new ymaps.Map('map', {
+                        center: [59.95983772717281,30.30965775396717], // центр карты
+                        zoom: 14, // масштаб 
+                        controls: ['zoomControl']
+                    }),
+                    
+                    
+                    myPlacemark = new ymaps.Placemark(
+            [59.958611064161666,30.309786499999877], // координаты маркера
+            {"iconContent":"","balloonContentBody":"г. Санкт-Петербург, ул. Ленина, д. 4","balloonContentHeader":"Прокат инструмента"}, // контент маркера
+            {
+                // Опции.
+                // Необходимо указать данный тип макета.
+                iconLayout: 'default#image',
+                // Своё изображение иконки метки.
+                iconImageHref: 'images/map-marker.png',
+                // Размеры метки.
+                iconImageSize: [30, 42],
+                // Смещение левого верхнего угла иконки относительно
+                // её "ножки" (точки привязки).
+                iconImageOffset: [-5, -38]
+            });
+            mapexMap.behaviors.disable('scrollZoom');
+            mapexMap.geoObjects.add(myPlacemark);
+            
+                    
+            });
+        </script>
     </section> <!-- end contacts-container -->
     
     <footer>
     <div class="container">
-        © 2024 
+        © 2024 Прокат инструмента.
         <div class="right">
-            Сайт разработан командой Бездарей
+            Сайт разработан командой "Бездарей"
         </div>
     </div> <!-- end container -->
     </footer>
     
+
 
 <div class="mymodal" id="formApplication">
         <div class="rf">
@@ -991,16 +951,16 @@
                 <h3>Сведения об арендуемом товаре</h3>
                 <div>
                     <label>Наименование</label>
-                    <input name="product-name" type="text" class="form-control theme-input" readonly="">
+                    <input name="product-name" type="text" class="form-control theme-input" readonly />
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <label for="datepicker">Дата получения<span class="red">*</span></label>
-                        <input name="date-in" type="text" class="form-control required datepicker" id="datepicker" readonly="">
+                        <input name="date-in" type="text" class="form-control required datepicker" id="datepicker" readonly />
                     </div>
                     <div class="col-sm-6">
                         <label for="datepicker2">Дата возврата<span class="red">*</span></label>
-                        <input name="date-out" type="text" class="form-control required datepicker" id="datepicker2" readonly="">
+                        <input name="date-out" type="text" class="form-control required datepicker" id="datepicker2" readonly  />
                     </div>
                 </div>
                 <div>
@@ -1011,44 +971,44 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="fio">ФИО<span class="red">*</span></label>
-                        <input name="fio" type="text" class="form-control required" id="fio">
+                        <input name="fio" type="text" class="form-control required" id="fio" />
                     </div>
                     <div class="col-sm-4">
                         <label for="tel">Телефон<span class="red">*</span></label>
-                        <input name="tel" type="text" class="form-control tel required" id="tel" placeholder="+7(___) ___-____">
+                        <input name="tel" type="text" class="form-control tel required" id="tel" placeholder="+7(___) ___-____" />
                     </div>
                     <div class="col-sm-4">
                         <label for="email">E-mail</label>
-                        <input name="email" type="email" class="form-control" id="email">
+                        <input name="email" type="email" class="form-control" id="email" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="birthday">Дата рождения<span class="red">*</span></label>
-                        <input name="birthday" type="text" class="form-control required" id="birthday">
+                        <input name="birthday" type="text" class="form-control required" id="birthday" />
                     </div>
                     <div class="col-sm-8">
                         <label for="address">Адрес места регистрации<span class="red">*</span></label>
-                        <input name="address" type="text" class="form-control required" id="address">
+                        <input name="address" type="text" class="form-control required" id="address" />
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-4">
                         <label for="passport">Паспорт (серия, номер)<span class="red">*</span></label>
-                        <input name="passport" type="text" class="form-control required passport" id="passport">
+                        <input name="passport" type="text" class="form-control required passport" id="passport" />
                     </div>
                     <div class="col-sm-8">
                         <label for="pass_info">Когда и кем выдан<span class="red">*</span></label>
-                        <input name="pass-info" type="text" class="form-control required" id="pass_info">
+                        <input name="pass-info" type="text" class="form-control required" id="pass_info" />
                     </div>
                 </div>
                 <div class="customcheck">
-                    <input type="checkbox" class="required" id="agree2"> 
+                    <input type="checkbox" class="required" id="agree2" /> 
                     <label for="agree2">даю согласие на обработку и хранение персональных данных</label>
                 </div>
                 <p style="margin-top: 15px;"><span class="red">*</span> - поля, обязательные для заполнения</p>
                 
-                <input type="submit" class="btn btn-green feedback" value="Отправить">
+                <input type="submit" class="btn btn-green feedback" value="Отправить" />
                 <div class="push20"></div>
             </form>
         </div>
@@ -1060,19 +1020,19 @@
         <div class="rf">
             <form name="form-callback">
                 <div class="form-group">
-                    <input name="fio" type="text" class="form-control required" placeholder="Ваше имя*">
+                    <input name="fio" type="text" class="form-control required" placeholder="Ваше имя*" />
                 </div>
                 <div class="form-group">
-                    <input name="tel" type="text" class="form-control tel required" placeholder="Ваш телефон*">
+                    <input name="tel" type="text" class="form-control tel required" placeholder="Ваш телефон*" />
                 </div>
                 <div class="customcheck">
-                    <input type="checkbox" class="required" id="agree3"> 
+                    <input type="checkbox" class="required" id="agree3" /> 
                     <label for="agree3">даю согласие на обработку и хранение персональных данных</label>
                 </div>
-                <br>
+                <br />
                 <p>* - поля, обязательные для заполнения</p>
                 <div class="push10"></div>
-                    <input type="submit" class="btn btn-green min feedback" value="Отправить">
+                    <input type="submit" class="btn btn-green min feedback" value="Отправить" />
                 <div class="push10"></div>
             </form>
         </div>
@@ -1083,19 +1043,23 @@
         <h2>Статус отправки формы:</h2>
         <div class="modal-content"></div>
         <div class="push25"></div>
-        <a href="index.html#" class="min btn btn-green fancyClose">ok</a>
+        <a href="#" class="min btn btn-green fancyClose">ok</a>
     </div>
     
     <!-- Подключаем cкритпы и плагины-->
-  
-  <script src="js/jquery.min.js"></script>
-  <script src="feedback/js/feedback.js"></script>
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script src="js/slick.min.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/jquery.viewportchecker.js"></script>
-  <script src="js/jquery.fancybox.js"></script>
-  <script src="js/jquery.maskedinput.js"></script>
-  <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="feedback/js/feedback.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/plugins-scroll.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/jquery.viewportchecker.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/jquery.maskedinput.js"></script>
+    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
