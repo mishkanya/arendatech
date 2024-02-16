@@ -10,6 +10,8 @@ namespace Arenda.Tech.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly ApplicationDbContext _applicationDbContext;
+        public IList<Product> Products { get; set; }
+        public IList<Review> Reviews{ get; set; }
 
 
         public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext applicationDbContext)
@@ -17,11 +19,13 @@ namespace Arenda.Tech.Pages
             _logger = logger;
             _applicationDbContext = applicationDbContext;
         }
-        public IList<Product> Products { get; set; }
 
         public async Task OnGetAsync()
         {
             Products = await _applicationDbContext.Products
+                .AsNoTracking()
+                .ToListAsync();
+            Reviews = await _applicationDbContext.Reviews
                 .AsNoTracking()
                 .ToListAsync();
         }

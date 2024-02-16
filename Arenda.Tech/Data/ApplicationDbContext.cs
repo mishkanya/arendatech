@@ -13,5 +13,6 @@ namespace Arenda.Tech.Data
         public DbSet<Product> Products { get; set; }   
         public DbSet<Admin> Admins { get; set; }   
         public DbSet<Image> Images { get; set; }   
+        public DbSet<Review> Reviews { get; set; }   
     }
 }

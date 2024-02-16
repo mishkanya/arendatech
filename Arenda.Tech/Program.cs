@@ -17,8 +17,17 @@ using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+
+string workingDirectory = Environment.CurrentDirectory;
+
 var folder = Environment.SpecialFolder.LocalApplicationData;
 var path = Environment.GetFolderPath(folder);
+
+path = workingDirectory;
+
+
+
 var dbPath = System.IO.Path.Join(path, "blogging.db");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

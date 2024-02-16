@@ -146,7 +146,7 @@
 
 <section id="products-container" class="products-container">
     <div class="container">
-        <h2 class="title-border trasnparent "><span class="txt"><span>Каталог инструментов</span></span></h2>
+        <h2 class="title-border trasnparent "><span class="txt"><span>Каталог товаров</span></span></h2>
         <div id="catalog">
             <ul class="simplefilter">
                 <li class="filter active" data-filter="all">Все</li>
@@ -204,93 +204,26 @@
         С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому<br> кругу (специалистов) участие в формировании систем массового участия.
     </div> <!-- end container -->
     <div class="carousel clearfix">
-        <div><img src="images/premium1.jpg"></div>
-        <div><img src="images/premium2.jpg"></div>
-        <div><img src="images/premium3.jpg"></div>
-        <div><img src="images/premium4.jpg"></div>
-        <div><img src="images/premium5.jpg"></div>
-        <div><img src="images/premium6.jpg"></div>
+        @foreach (var item in Model.Products)
+        {
+            <div><img src="@item.Images"></div>
+            
+        }
     </div> <!-- end carousel -->
     <div class="container">
         <div class="carousel-info">
 
-            <div class="item">
-                <div class="price">600 руб/сутки</div>
-                <div class="marka">Дисковая пила Makita 5704R</div>
+            @foreach (var item in Model.Products)
+            {
+                <div class="item">
+                    <div class="price">@item.Price руб/сутки</div>
+                    <div class="marka">@item.Name</div>
                 <ul>
-                    <li>1000 Вт.</li>
-                    <li>1000 об./мин.</li>
-                    <li>Плавный пуск: есть</li>
-                    <li>Длина кабеля: 2.5 м.</li>
-                    <li>Вес: 2.3 кг.</li>
+                    <li>@item.ShortDescription</li>
                 </ul>
-                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Дисковая пила Makita 5704R">Взять в аренду</a>
+                    <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="@item.Name">Взять в аренду</a>
             </div> <!-- end item -->
-
-            <div class="item">
-                <div class="price">400 руб/сутки</div>
-                <div class="marka">УШМ Bosch GWS 22-180 LVI</div>
-                <ul>
-                    <li>1000 Вт.</li>
-                    <li>1000 об./мин.</li>
-                    <li>Плавный пуск: есть</li>
-                    <li>Длина кабеля: 2.5 м.</li>
-                    <li>Вес: 2.3 кг.</li>
-                </ul>
-                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="УШМ Bosch GWS 22-180 LVI">Взять в аренду</a>
-            </div> <!-- end item -->
-
-            <div class="item">
-                <div class="price">500 руб/сутки</div>
-                <div class="marka">Акумуляторний шуруповерт BOSCH PSR 12</div>
-                <ul>
-                    <li>1000 Вт.</li>
-                    <li>1000 об./мин.</li>
-                    <li>Плавный пуск: есть</li>
-                    <li>Длина кабеля: 2.5 м.</li>
-                    <li>Вес: 2.3 кг.</li>
-                </ul>
-                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Акумуляторний шуруповерт BOSCH PSR 12">Взять в аренду</a>
-            </div> <!-- end item -->
-
-            <div class="item">
-                <div class="price">700 руб/сутки</div>
-                <div class="marka">Бетономешалка Patriot BM 126C</div>
-                <ul>
-                    <li>1000 Вт.</li>
-                    <li>1000 об./мин.</li>
-                    <li>Плавный пуск: есть</li>
-                    <li>Длина кабеля: 2.5 м.</li>
-                    <li>Вес: 2.3 кг.</li>
-                </ul>
-                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Бетономешалка Patriot BM 126C">Взять в аренду</a>
-            </div> <!-- end item -->
-
-            <div class="item">
-                <div class="price">800 руб/сутки</div>
-                <div class="marka">Бензиновый генератор Fubag HS 2500</div>
-                <ul>
-                    <li>1000 Вт.</li>
-                    <li>1000 об./мин.</li>
-                    <li>Плавный пуск: есть</li>
-                    <li>Длина кабеля: 2.5 м.</li>
-                    <li>Вес: 2.3 кг.</li>
-                </ul>
-                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Бензиновый генератор Fubag HS 2500">Взять в аренду</a>
-            </div> <!-- end item -->
-
-            <div class="item">
-                <div class="price">300 руб/сутки</div>
-                <div class="marka">Лобзик Bosch 4350 FCT</div>
-                <ul>
-                    <li>1000 Вт.</li>
-                    <li>1000 об./мин.</li>
-                    <li>Плавный пуск: есть</li>
-                    <li>Длина кабеля: 2.5 м.</li>
-                    <li>Вес: 2.3 кг.</li>
-                </ul>
-                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Лобзик Bosch 4350 FCT">Взять в аренду</a>
-            </div> <!-- end item -->
+            }
 
         </div> <!-- end carousel-info -->
     </div> <!-- end container -->
@@ -529,28 +462,21 @@
     <div class="container clearfix">
         <h2 class="title-border trasnparent "><span class="txt"><span>Отзывы клиентов</span></span></h2>
         <div class="carousel col-md-9">
-            <div class="item">
-                <div class="photo">
-                    <img src="images/user-pict.jpg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="head">
-                        <span class="username">Владимир Береза</span> брал Дисковая пила Makita 5704R
+           
+           @foreach (var item in Model.Reviews)
+            {
+                <div class="item">
+                    <div class="photo">
+                        <img src="@item.Image" alt="">
                     </div>
-                    С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности способствует подготовки и реализации модели развития.
-                </div>
-            </div> <!-- end item -->
-            <div class="item">
-                <div class="photo">
-                    <img src="images/user-pict.jpg" alt="">
-                </div>
-                <div class="desc">
-                    <div class="head">
-                        <span class="username">Владимир Береза</span> брал Дисковая пила Makita 5704R
+                    <div class="desc">
+                        <div class="head">
+                            <span class="username">@item.Name</span> @item.Product
+                        </div>
+                        @item.Text
                     </div>
-                    С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности способствует подготовки и реализации модели развития.
-                </div>
-            </div> <!-- end item -->
+                </div> <!-- end item -->
+            }
 
         </div> <!-- end carousel  -->
     </div> <!-- end container -->
