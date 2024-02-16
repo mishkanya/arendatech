@@ -1,15 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Identity
 
-<ul class="navbar-nav">
 @if (Context.User.Identity.IsAuthenticated)
 {
-    <li class="nav-item">
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-    </li>
-    <li class="nav-item">
-            <form class="form-inline"  action="/logon"  method="post">
-            <button  type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-        </form>
-    </li>
+    <a class="phone">Hi @User.Identity?.Name</a>
+
+    <a href="/logon" class="phone">Logout</a>
+    @* <form class="form-inline" action="/logon" method="post">
+        <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+    </form>  *@
 }
-</ul>

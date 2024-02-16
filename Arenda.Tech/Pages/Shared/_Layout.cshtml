@@ -1,51 +1,191 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Arenda.Tech</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Arenda.Tech.styles.css" asp-append-version="true" />
+    <partial name="HeaderPartical" />
+    @{
+        Html.RenderPartial("HeaderPartical");
+    }
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <span href="#" class="btn-up"><i class="fa fa-angle-up"></i></span>
+    <header id="header">
+        <div class="header-top hidden-xs">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Arenda.Tech</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span class="time"><i class="fa fa-map-signs" aria-hidden="true"></i> г. Санкт-Петербург, ул. Ленина д. 4</span>
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        <partial name="_LoginPartial" />
+                        <a href="tel:87422228888" class="phone"><i class="fa fa-phone"></i>8(7422) 22-88-88</a>
+                        <a href="mailto:info@sitename.com" class="mail"><i class="fa fa-envelope"></i>info@sitename.com</a>
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+            </div> <!-- end container -->
+        </div> <!-- end header-top -->
 
-    <footer class="border-top footer text-muted">
+
+        <div class="header-btm">
+            <div class="container">
+                <a href="/" class="logo"><img src="/images/logo.png" alt=""></a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-menu-burger"><span class="icon-menu-burger__line"></span></span></button>
+                <div class="navbar-collapse collapse">
+                    <div class="header-top hidden-sm hidden-md hidden-lg">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <a href="tel:87422228888" class="phone"><i class="fa fa-phone"></i>8(7422) 22-88-88</a>
+                                    <a href="mailto:info@sitename.com" class="mail"><i class="fa fa-envelope"></i>info@sitename.com</a>
+                                </div>
+                                <div class="col-sm-6 text-right">
+                                    <span class="time"><i class="fa fa-map-signs" aria-hidden="true"></i> г. Санкт-Петербург, ул. Ленина д. 4</span>
+                                </div>
+                            </div>
+                        </div> <!-- end container -->
+                    </div> <!-- end header-top -->
+                    <ul class="nav navbar-nav">
+                        <li><a href="#header">Главная</a></li>
+                        <li><a href="#products-container">каталог инструментов</a></li>
+                        <li><a href="#info">FAQ</a></li>
+                        <li><a href="#reviews-container">отзывы</a></li>
+                        <li><a href="#contacts-container">контакты</a></li>
+                    </ul>
+                </div>
+            </div> <!-- end container -->
+        </div> <!-- end header-btm -->
+    </header>
+    <div class="header-push"></div>
+
+    @RenderBody()
+
+
+    <footer>
         <div class="container">
-            &copy; 2024 - Arenda.Tech - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
+            © 2024 Прокат инструмента.
+            <div class="right">
+                Сайт разработан командой "Бездарей"
+            </div>
+        </div> <!-- end container -->
     </footer>
 
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    <div class="mymodal" id="formApplication">
+        <div class="rf">
+            <form name="form-application">
+                <h3>Сведения об арендуемом товаре</h3>
+                <div>
+                    <label>Наименование</label>
+                    <input name="product-name" type="text" class="form-control theme-input" readonly />
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="datepicker">Дата получения<span class="red">*</span></label>
+                        <input name="date-in" type="text" class="form-control required datepicker" id="datepicker" readonly />
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="datepicker2">Дата возврата<span class="red">*</span></label>
+                        <input name="date-out" type="text" class="form-control required datepicker" id="datepicker2" readonly />
+                    </div>
+                </div>
+                <div>
+                    <label for="message">Примечания</label>
+                    <textarea name="message" class="form-control" id="message" placeholder="укажите место получения/возврата"></textarea>
+                </div>
+                <h3>Персональные данные</h3>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="fio">ФИО<span class="red">*</span></label>
+                        <input name="fio" type="text" class="form-control required" id="fio" />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="tel">Телефон<span class="red">*</span></label>
+                        <input name="tel" type="text" class="form-control tel required" id="tel" placeholder="+7(___) ___-____" />
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="email">E-mail</label>
+                        <input name="email" type="email" class="form-control" id="email" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="birthday">Дата рождения<span class="red">*</span></label>
+                        <input name="birthday" type="text" class="form-control required" id="birthday" />
+                    </div>
+                    <div class="col-sm-8">
+                        <label for="address">Адрес места регистрации<span class="red">*</span></label>
+                        <input name="address" type="text" class="form-control required" id="address" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="passport">Паспорт (серия, номер)<span class="red">*</span></label>
+                        <input name="passport" type="text" class="form-control required passport" id="passport" />
+                    </div>
+                    <div class="col-sm-8">
+                        <label for="pass_info">Когда и кем выдан<span class="red">*</span></label>
+                        <input name="pass-info" type="text" class="form-control required" id="pass_info" />
+                    </div>
+                </div>
+                <div class="customcheck">
+                    <input type="checkbox" class="required" id="agree2" />
+                    <label for="agree2">даю согласие на обработку и хранение персональных данных</label>
+                </div>
+                <p style="margin-top: 15px;"><span class="red">*</span> - поля, обязательные для заполнения</p>
+
+                <input type="submit" class="btn btn-green feedback" value="Отправить" />
+                <div class="push20"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="mymodal min" id="callback">
+        <h3>Оставить заявку</h3>
+        <div class="push10"></div>
+        <div class="rf">
+            <form name="form-callback">
+                <div class="form-group">
+                    <input name="fio" type="text" class="form-control required" placeholder="Ваше имя*" />
+                </div>
+                <div class="form-group">
+                    <input name="tel" type="text" class="form-control tel required" placeholder="Ваш телефон*" />
+                </div>
+                <div class="customcheck">
+                    <input type="checkbox" class="required" id="agree3" />
+                    <label for="agree3">даю согласие на обработку и хранение персональных данных</label>
+                </div>
+                <br />
+                <p>* - поля, обязательные для заполнения</p>
+                <div class="push10"></div>
+                <input type="submit" class="btn btn-green min feedback" value="Отправить" />
+                <div class="push10"></div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="mymodal min" id="responseMessage">
+        <h2>Статус отправки формы:</h2>
+        <div class="modal-content"></div>
+        <div class="push25"></div>
+        <a href="#" class="min btn btn-green fancyClose">ok</a>
+    </div>
+
+    <!-- Подключаем cкритпы и плагины-->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/feedback/js/feedback.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="/js/modernizr.js"></script>
+    <script src="/js/plugins-scroll.js"></script>
+    <script src="/js/jquery.countdown.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/slick.min.js"></script>
+    <script src="/js/jquery.animateNumber.min.js"></script>
+    <script src="/js/jquery.viewportchecker.js"></script>
+    <script src="/js/jquery.fancybox.js"></script>
+    <script src="/js/jquery.maskedinput.js"></script>
+    <script src="/js/jquery.mixitup.min.js"></script>
+    <script src="/js/main.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

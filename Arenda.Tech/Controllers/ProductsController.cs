@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 using Arenda.Tech.Data;
 using Arenda.Tech.Models;
 using Microsoft.AspNetCore.Authorization;
-using System.Net;
 
 namespace Arenda.Tech.Controllers
 {
+
     [Authorize]
     public class ProductsController : Controller
     {
@@ -20,9 +20,6 @@ namespace Arenda.Tech.Controllers
         public ProductsController(ApplicationDbContext context)
         {
             _context = context;
-            //HttpContext.Response?.Clear();
-            //HttpContext.Response.StatusCode = (Int32)HttpStatusCode.Unauthorized;
-            //HttpContext.Response?.Headers.Add("WWW-Authenticate", "Basic");
         }
 
         // GET: Products
@@ -62,7 +59,7 @@ namespace Arenda.Tech.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,ShortDescription,Description,Price,OldPrice,Images,Type,Rating,PreviewVideoLink, FreeCount")] Product product)
+        public async Task<IActionResult> Create([Bind("Id,Name,ShortDescription,Description,Price,NowPrice,Images,Type,Rating,PreviewVideoLink,FreeCount")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -94,7 +91,7 @@ namespace Arenda.Tech.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ShortDescription,Description,Price,OldPrice,Images,Type,Rating,PreviewVideoLink, FreeCount")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,ShortDescription,Description,Price,NowPrice,Images,Type,Rating,PreviewVideoLink,FreeCount")] Product product)
         {
             if (id != product.Id)
             {

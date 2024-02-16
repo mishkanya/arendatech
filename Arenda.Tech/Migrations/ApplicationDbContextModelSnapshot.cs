@@ -35,10 +35,28 @@ namespace Arenda.Tech.Migrations
                     b.ToTable("Admins");
                 });
 
+            modelBuilder.Entity("Arenda.Tech.Models.Image", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Images");
+                });
+
             modelBuilder.Entity("Arenda.Tech.Models.Product", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CategotyName")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
@@ -55,7 +73,7 @@ namespace Arenda.Tech.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<double?>("OldPrice")
+                    b.Property<double?>("NowPrice")
                         .HasColumnType("REAL");
 
                     b.Property<string>("PreviewVideoLink")

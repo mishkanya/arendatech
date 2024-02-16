@@ -27,24 +27,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
+
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
-
-//builder.Services.AddAuthentication(NegotiateDefaults.AuthenticationScheme)
-//   .AddNegotiate(options => {
-//       options.Events = new NegotiateEvents
-//       {
-
-//           OnAuthenticated = authData =>
-//           {
-//               Console.WriteLine($"body: {new StreamReader(authData.Request.Body).ReadToEndAsync().Result}\n" +
-//                   $"header: {authData.Request}\n"
-//               );
-//               return Task.CompletedTask;
-//           }
-//       };
-//   });
 
 builder.Services.AddMvc(options => options.EnableEndpointRouting = false);
 builder.Services.AddRazorPages();
@@ -67,18 +53,29 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.Use(async (context, next) =>
+{
+    await next();
+
+    if (context.Response.StatusCode == (int)HttpStatusCode.Unauthorized) 
+    {
+        context.Response.ContentType = "text/html; charset=utf-8";
+        await context.Response.WriteAsync("<a href='/'>Вы успешно вышли! На главную </a>");
+    }
+});
+
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapGet("/logon", async (HttpContext context, BasicAuthenticationHandler s) =>
+{
+    return Results.Unauthorized();
+});
 
 app.MapRazorPages();
 app.MapControllers();
 builder.Services.AddControllersWithViews();
 
-
-app.MapPost("/logon", (HttpContext context, BasicAuthenticationHandler s) =>
-{
-    return Results.Unauthorized();
-});
 
 
 app.UseMvc(routes =>

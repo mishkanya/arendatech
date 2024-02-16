@@ -1,10 +1,614 @@
 ﻿@page
-@model IndexModel
-@{
-    ViewData["Title"] = "Home page";
-}
+@using Arenda.Tech.Models
+@model Arenda.Tech.Pages.IndexModel
+@* @model IEnumerable<Product> *@
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+@{
+    ViewData["Title"] = "Courses";
+}
+<section class="top-slider">
+    <div class="item">
+        <div class="element" style="background: url(images/main-slider1.jpg) left 0 no-repeat; background-size: cover;">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="sup-title">Зачем покупать? Возьми на время!</div>
+                        <div class="title">Перфоратор Bosch 1150 Вт</div>
+                        <div class="sub-title">В сутки от <b>1000 р.</b></div>
+                        <a href="#formApplication" class="fancyboxModal btn btn-green" data-theme="Перфоратор GBH 5-40 DCE 1150 Вт 8,8 Дж, SDS-max, Bosch">Взять на прокат</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item">
+        <div class="element" style="background: url(images/main-slider2.jpg) 50% 0 no-repeat; background-size: cover;">
+            <div class="table">
+                <div class="table-cell">
+                    <div class="container">
+                        <div class="sup-title">всё для слесаря, сантехника, электрика, ручной инструмент</div>
+                        <div class="title">Степлер мебельный, регулируемый</div>
+                        <div class="sub-title">В сутки - <b>50 р.</b></div>
+                        <a href="#formApplication" class="fancyboxModal btn btn-green" data-theme="Степлер мебельный, регулируемый">Взять на прокат</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="timer-container" class="timer-container">
+    <div class="container">
+        <div class="timer-box">
+            <div class="push30 visible-xs visible-sm"></div>
+            <div class="inner">
+                <h2 class="title-border"><span class="txt"><span>на все выходные скидка 15%</span></span></h2>
+                Успей взять инструмент в аренду на выходные и праздничные дни и гарантированно <br />
+                получить скидку 15% на любой инструмент!
+                <div class="countdown-inner">
+                    <div id="countdown"></div>
+                </div>
+                <div class="rf">
+                    <form name="form-action">
+                        <div class="form-group">
+                            <input name="fio" class="form-control required" placeholder="Введите имя*" type="text">
+                        </div>
+                        <div class="form-group">
+                            <input name="tel" class="form-control tel required" placeholder="Контактный телефон*" type="text">
+                        </div>
+                        <div class="form-group">
+                            <input name="days" class="form-control" placeholder="Срок аренды (дней)" type="text">
+                        </div>
+                        <input type="submit" class="btn btn-black feedback" value="Отправить">
+                        <div class="clear"></div>
+                        <br /><br />
+                        <div class="customcheck">
+                            <input type="checkbox" class="required" id="agree1" />
+                            <label for="agree1">даю согласие на обработку и хранение персональных данных</label>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- end inner -->
+        </div> <!-- end timer-box -->
+    </div> <!-- end container -->
+</section> <!-- end timer-container -->
+
+<section id="advantages-container" class="advantages-container">
+    <div class="container">
+        <h2 class="title-border trasnparent "><span class="txt"><span>Почему у нас выгоднее?</span></span></h2>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="element">
+                    <div class="icon"><i class="fa fa-usd"></i></div>
+                    <div class="desc">
+                        <div class="ttl">без залога</div>
+                        Для клиентов, воспользовавшихся услугами более 3 раз
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="element delay-250">
+                    <div class="icon"><img src="images/icon-car.png" alt=""></div>
+                    <div class="desc">
+                        <div class="ttl">доставим по адресу</div>
+                        От суммы проката на 1000 рублей и более - доставка бесплатная
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="element delay-500">
+                    <div class="icon"><i class="fa fa-bolt"></i></div>
+                    <div class="desc">
+                        <div class="ttl">быстро</div>
+                        Оформление проката инструмента всего за 20 минут!
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="element delay-750">
+                    <div class="icon"><img src="images/icon-securety.png" alt=""></div>
+                    <div class="desc">
+                        <div class="ttl">безопасно</div>
+                        Все инструменты застрахованы и в отличном состоянии
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="push20 visible-xs visible-sm"></div>
+    </div> <!-- end container -->
+</section> <!-- end advantages-container -->
+
+<section id="dealer" class="dealer-continer">
+    <div class="container">
+        <h2 class="text-right-center white">
+            Прокат инструмента осуществляется согласно договора в соответствии <br />
+            с действующим законодательством.
+        </h2>
+        <br />
+        <p>
+            Всё представленное на сайте оборудованиеотносится к разряду строительного инструмента, и может использоваться<br />
+            бригадами и частными лицами для строительства и ремонта жилых <br />
+            и нежилых помещений.
+        </p>
+        <br />
+        <div class="manager">
+            <div class="photo">
+                <img src="images/manager-photo.png" alt="">
+            </div>
+            <div class="row">
+                <div class="col-sm-6"><i class="fa fa-phone"></i> Остались вопросы?</div>
+                <div class="col-sm-6">8(7422) 22-88-88</div>
+            </div>
+        </div> <!-- end manager -->
+    </div> <!-- end container -->
+</section> <!-- end dealer-container -->
+
+<section id="products-container" class="products-container">
+    <div class="container">
+        <h2 class="title-border trasnparent "><span class="txt"><span>Каталог инструментов</span></span></h2>
+        <div id="catalog">
+            <ul class="simplefilter">
+                <li class="filter active" data-filter="all">Все</li>
+                <li class="filter" data-filter=".category1">название категории 1</li>
+                <li class="filter" data-filter=".category2">название категории 2</li>
+                <li class="filter" data-filter=".category3">название категории 3</li>
+                <li class="filter" data-filter=".category4">название категории 4</li>
+                <li class="filter" data-filter=".category5">название категории 5</li>
+            </ul>
+            <div class="push30"></div>
+            <div class="list row">
+                <div class="filtr-container">
+                    @foreach (var item in Model.Products)
+                    {
+                        <div class="col-md-4 col-sm-6 mix @item.Type">
+                            <div class="item">
+                                <div class="pict">
+                                    <div class="price">Цена: @item.Price р. | Залог: @item.NowPrice р.</div><img src="@item.Images">
+                                </div>
+                                <div class="push18"></div>
+                                <div class="marka">@item.Name</div>
+                                <div class="seporate"></div>
+                                <div class="desc">
+                                    @item.ShortDescription
+                                </div>
+                                <div class="btm"><a href="#formApplication" class="fancyboxModal" data-theme="@item.Name">Арендовать</a></div>
+                            </div> <!-- end item -->
+                        </div>
+                    }
+                </div>
+
+            </div> <!-- end list -->
+
+        </div>
+
+        <!-- <a href="#" class="btn-more"><img src="images/icon-load.png" alt="">Показать больше</a> -->
+    </div> <!-- end container -->
+</section> <!-- end products-container -->
+
+<section class="leave-request-container">
+    <div class="container">
+        <div class="inner">
+            <div class="ttl">Все не то?</div>
+            <h3 class="title">Нужно что-то <span>особенное?</span></h3>
+            На нашем складе намного больше того, что мы можем вам показать. Позвоните нам или<br> оставьте свой номер телефона, и мы поможем вам выбрать то, что нужно.
+            <a href="#callback" class="btn btn-transparent fancyboxModal">Оставить заявку</a>
+        </div> <!-- end inner -->
+    </div> <!-- end container -->
+</section> <!-- end leave-request-container -->
+
+<section id="premium-container" class="premium-container">
+    <div class="container">
+        <img src="images/icon-premium.png" alt="">
+        <h2 class="title-border trasnparent "><span class="txt"><span>Популярные инструменты</span></span></h2>
+        С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому<br> кругу (специалистов) участие в формировании систем массового участия.
+    </div> <!-- end container -->
+    <div class="carousel clearfix">
+        <div><img src="images/premium1.jpg"></div>
+        <div><img src="images/premium2.jpg"></div>
+        <div><img src="images/premium3.jpg"></div>
+        <div><img src="images/premium4.jpg"></div>
+        <div><img src="images/premium5.jpg"></div>
+        <div><img src="images/premium6.jpg"></div>
+    </div> <!-- end carousel -->
+    <div class="container">
+        <div class="carousel-info">
+
+            <div class="item">
+                <div class="price">600 руб/сутки</div>
+                <div class="marka">Дисковая пила Makita 5704R</div>
+                <ul>
+                    <li>1000 Вт.</li>
+                    <li>1000 об./мин.</li>
+                    <li>Плавный пуск: есть</li>
+                    <li>Длина кабеля: 2.5 м.</li>
+                    <li>Вес: 2.3 кг.</li>
+                </ul>
+                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Дисковая пила Makita 5704R">Взять в аренду</a>
+            </div> <!-- end item -->
+
+            <div class="item">
+                <div class="price">400 руб/сутки</div>
+                <div class="marka">УШМ Bosch GWS 22-180 LVI</div>
+                <ul>
+                    <li>1000 Вт.</li>
+                    <li>1000 об./мин.</li>
+                    <li>Плавный пуск: есть</li>
+                    <li>Длина кабеля: 2.5 м.</li>
+                    <li>Вес: 2.3 кг.</li>
+                </ul>
+                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="УШМ Bosch GWS 22-180 LVI">Взять в аренду</a>
+            </div> <!-- end item -->
+
+            <div class="item">
+                <div class="price">500 руб/сутки</div>
+                <div class="marka">Акумуляторний шуруповерт BOSCH PSR 12</div>
+                <ul>
+                    <li>1000 Вт.</li>
+                    <li>1000 об./мин.</li>
+                    <li>Плавный пуск: есть</li>
+                    <li>Длина кабеля: 2.5 м.</li>
+                    <li>Вес: 2.3 кг.</li>
+                </ul>
+                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Акумуляторний шуруповерт BOSCH PSR 12">Взять в аренду</a>
+            </div> <!-- end item -->
+
+            <div class="item">
+                <div class="price">700 руб/сутки</div>
+                <div class="marka">Бетономешалка Patriot BM 126C</div>
+                <ul>
+                    <li>1000 Вт.</li>
+                    <li>1000 об./мин.</li>
+                    <li>Плавный пуск: есть</li>
+                    <li>Длина кабеля: 2.5 м.</li>
+                    <li>Вес: 2.3 кг.</li>
+                </ul>
+                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Бетономешалка Patriot BM 126C">Взять в аренду</a>
+            </div> <!-- end item -->
+
+            <div class="item">
+                <div class="price">800 руб/сутки</div>
+                <div class="marka">Бензиновый генератор Fubag HS 2500</div>
+                <ul>
+                    <li>1000 Вт.</li>
+                    <li>1000 об./мин.</li>
+                    <li>Плавный пуск: есть</li>
+                    <li>Длина кабеля: 2.5 м.</li>
+                    <li>Вес: 2.3 кг.</li>
+                </ul>
+                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Бензиновый генератор Fubag HS 2500">Взять в аренду</a>
+            </div> <!-- end item -->
+
+            <div class="item">
+                <div class="price">300 руб/сутки</div>
+                <div class="marka">Лобзик Bosch 4350 FCT</div>
+                <ul>
+                    <li>1000 Вт.</li>
+                    <li>1000 об./мин.</li>
+                    <li>Плавный пуск: есть</li>
+                    <li>Длина кабеля: 2.5 м.</li>
+                    <li>Вес: 2.3 кг.</li>
+                </ul>
+                <a href="#formApplication" class="btn btn-green fancyboxModal" data-theme="Лобзик Bosch 4350 FCT">Взять в аренду</a>
+            </div> <!-- end item -->
+
+        </div> <!-- end carousel-info -->
+    </div> <!-- end container -->
+</section> <!-- end premium-container -->
+
+<section class="indicators-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="num" data-speed="2500" data-num="235">235</div>
+                <div class="title-border trasnparent "><span class="txt"><span>Единиц инструмента</span></span></div>
+            </div>
+            <div class="col-sm-4">
+                <div class="num" data-speed="2500" data-num="6">6</div>
+                <div class="title-border trasnparent "><span class="txt"><span>Лет на рынке проката</span></span></div>
+            </div>
+            <div class="col-sm-4">
+                <div class="num" data-speed="2500" data-num="1000">1000</div>
+                <div class="title-border trasnparent "><span class="txt"><span>Довольных Клиентов</span></span></div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section> <!-- end indicators-container -->
+
+<section class="info-conainer" id="info">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 element-left">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="pict">
+                            <a href="#info1" class="absolute fancyboxModal"></a>
+                            <img src="images/info-pict1.jpg">
+                            <div class="element-content text-center">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <div class="img-wrapper">
+                                            <img src="images/info-icon1.png" />
+                                        </div>
+                                        <div class="title">Условия аренды</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="mymodal" id="info1">
+                                <h3>Условия аренды</h3>
+                                <p>
+                                    <strong>Чтобы взять инструмент напрокат, необходимо сделать всего три простых шага:</strong>
+                                </p>
+
+                                <ol>
+                                    <li>
+                                        Предоставить паспорт для того, чтобы мы могли составить простой
+                                        договор аренды (паспорт сразу же вернем).
+                                    </li>
+                                    <li>
+                                        Внести денежный залог.
+                                    </li>
+                                    <li>
+                                        Оплатить аренду инструмента.
+                                    </li>
+                                </ol>
+
+                                <p>
+                                    Мы работаем с физическими лицами и с представителями юридических лиц,
+                                    без доверенности. В данный момент мы работаем только за наличный расчет,
+                                    но для бухгалтерий организаций мы предоставляем все необходимые отчетные документы.
+                                </p>
+
+                                <p>
+                                    Перед получением инструмента, клиент, совместно с работником пункта проката, проводит проверку оборудования, на предмет дефектов или неисправностей. Мы следим за состоянием выдаваемого в аренду оборудования и регулярно делаем техническое обслуживание прокатного инструмента чтобы выдавать его вам, без поломок и неисправностей.
+                                    Все клиенты проходят инструктаж по технике безопасности при работе, а так же
+                                    работники нашего центра проката могут проконсультировать по поводу правильного в
+                                    ыбора расходных материалов.
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="pict">
+                            <a href="#info2" class="absolute fancyboxModal"></a>
+                            <img src="images/info-pict2.jpg">
+                            <div class="element-content text-center">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <div class="img-wrapper">
+                                            <img src="images/info-icon2.png" />
+                                        </div>
+                                        <div class="title">Техника безопасности</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mymodal" id="info2">
+                                <h3>Техника безопасности</h3>
+                                <p>
+                                    Внимательно прочтите все указания по технике безопасности и прочие инструкции.
+                                    Невыполнение приведенных ниже инструкций и указаний по технике безопасности может
+                                    привести к поражению электрическим током, возникновению пожара и/или к получению
+                                    тяжелых травм. Сохраните все указания по технике безопасности и инструкции для
+                                    будущего владельца электроинструмента! Используемое в указаниях по технике
+                                    безопасности термин «электроинструмент» относится к электроинструменту,
+                                    работающему от электрической сети (с сетевым кабелем) и от аккумулятора (без
+                                    сетевого кабеля).
+                                </p>
+                                <p>
+                                    <strong>Безопасность на рабочем месте</strong>
+                                </p>
+
+                                <ol>
+                                    <li>
+                                        Следите за чистотой и порядком на Вашем рабочем месте. Беспорядок на
+                                        рабочей месте и плохое освещение может привести к несчастным случаям.
+                                    </li>
+                                    <li>
+                                        Не работайте с электроинструментом во взрывоопасной зоне, в которой
+                                        находятся горючие жидкости, газы или пыль. При работе электроинструмент
+                                        искрит, и искры могут воспламенить пыль или пары.
+                                    </li>
+                                    <li>
+                                        Не допускайте детей и других лиц к Вашему рабочему месту во время работы с
+                                        электроинструментом. Отвлекаясь от работы, Вы можете потерять контроль над
+                                        электроинструментом.
+                                    </li>
+                                </ol>
+
+                                <p>
+                                    Будьте внимательны, следите за своими действиями и серьезно относитесь к работе
+                                    с электроинструментом. Не пользуйтесь электроинструментом, если Вы устали,
+                                    находитесь под действием наркотиков, алкоголя или лекарств.
+                                </p>
+
+                                <p>
+                                    При неправильном применении из аккумулятора может вытечь аккумуляторная жидкость.
+                                    Избегайте контакта с ней. При случайном контакте смойте жидкость водой. При попадании
+                                    жидкости в глаза обратитесь к врачу. Вытекающая аккумуляторная жидкость может вызвать
+                                    раздражение кожи или ожоги.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="push25 visible-xs"></div>
+                        <div class="pict">
+                            <a href="#info3" class="absolute fancyboxModal"></a>
+                            <img src="images/info-pict3.jpg">
+                            <div class="element-content text-center">
+                                <div class="table">
+                                    <div class="table-cell">
+                                        <div class="img-wrapper">
+                                            <img src="images/info-icon3.png" />
+                                        </div>
+                                        <div class="title">О нашей компании</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mymodal" id="info3">
+                                <h3>О компании</h3>
+
+
+                                <p>
+                                    Повседневная практика показывает, что укрепление и развитие структуры представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. С другой стороны консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании модели развития. Таким образом реализация намеченных плановых заданий позволяет оценить значение существенных финансовых и административных условий. Таким образом дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание направлений прогрессивного развития.
+                                </p>
+
+                                <p>
+                                    Равным образом новая модель организационной деятельности требуют от нас анализа дальнейших направлений развития. Разнообразный и богатый опыт консультация с широким активом требуют определения и уточнения соответствующий условий активизации. Товарищи! постоянное информационно-пропагандистское обеспечение нашей деятельности в значительной степени обуславливает создание направлений прогрессивного развития. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров влечет за собой процесс внедрения и модернизации систем массового участия.
+                                </p>
+
+                                <p>
+                                    Разнообразный и богатый опыт сложившаяся структура организации влечет за собой процесс внедрения и модернизации позиций, занимаемых участниками в отношении поставленных задач. Задача организации, в особенности же постоянный количественный рост и сфера нашей активности влечет за собой процесс внедрения и модернизации модели развития. Не следует, однако забывать, что новая модель организационной деятельности требуют определения и уточнения соответствующий условий активизации.
+                                </p>
+
+                                <p>
+                                    Повседневная практика показывает, что укрепление и развитие структуры представляет собой интересный эксперимент проверки системы обучения кадров, соответствует насущным потребностям. С другой стороны консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании модели развития. Таким образом реализация намеченных плановых заданий позволяет оценить значение существенных финансовых и административных условий. Таким образом дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание направлений прогрессивного развития.
+                                </p>
+
+                                <p>
+                                    Равным образом новая модель организационной деятельности требуют от нас анализа дальнейших направлений развития. Разнообразный и богатый опыт консультация с широким активом требуют определения и уточнения соответствующий условий активизации. Товарищи! постоянное информационно-пропагандистское обеспечение нашей деятельности в значительной степени обуславливает создание направлений прогрессивного развития. Значимость этих проблем настолько очевидна, что рамки и место обучения кадров влечет за собой процесс внедрения и модернизации систем массового участия.
+                                </p>
+
+                                <p>
+                                    Разнообразный и богатый опыт сложившаяся структура организации влечет за собой процесс внедрения и модернизации позиций, занимаемых участниками в отношении поставленных задач. Задача организации, в особенности же постоянный количественный рост и сфера нашей активности влечет за собой процесс внедрения и модернизации модели развития. Не следует, однако забывать, что новая модель организационной деятельности требуют определения и уточнения соответствующий условий активизации.
+                                </p>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 element-right">
+                <div class="akardion">
+                    <div class="item first-open">
+                        <div class="head">Что на самом деле представляет собой залоговая сумма?</div>
+                        <div class="desc">
+                            Величина залога в нашем прокате сравнительно ниже, чем в двух других прокатах.
+                            По некоторым позициям существенно ниже. Клиентов, которых мы начинали обслуживать
+                            без залога, мы продолжаем, в основном, обслуживать так же. Все новые клиенты вносят
+                            залог и исключений в этом правиле нет.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="head"> А что если инструмент во время работы вдруг сломался?</div>
+                        <div class="desc">
+                            С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие
+                            в формировании систем массового участия развитие различных форм деятельности обеспечивает широкому кругу.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="head">Можно ли организовать доставку инструмента на объект?</div>
+                        <div class="desc">
+                            С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="head">Можно ли заранее забронировать инструмент?</div>
+                        <div class="desc">
+                            С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="head">Какой минимальный срок на прокат инструмента?</div>
+                        <div class="desc">
+                            С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+</section> <!-- end info-container -->
+
+
+<section id="reviews-container" class="reviews-container">
+    <div class="container clearfix">
+        <h2 class="title-border trasnparent "><span class="txt"><span>Отзывы клиентов</span></span></h2>
+        <div class="carousel col-md-9">
+            <div class="item">
+                <div class="photo">
+                    <img src="images/user-pict.jpg" alt="">
+                </div>
+                <div class="desc">
+                    <div class="head">
+                        <span class="username">Владимир Береза</span> брал Дисковая пила Makita 5704R
+                    </div>
+                    С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности способствует подготовки и реализации модели развития.
+                </div>
+            </div> <!-- end item -->
+            <div class="item">
+                <div class="photo">
+                    <img src="images/user-pict.jpg" alt="">
+                </div>
+                <div class="desc">
+                    <div class="head">
+                        <span class="username">Владимир Береза</span> брал Дисковая пила Makita 5704R
+                    </div>
+                    С другой стороны дальнейшее развитие различных форм деятельности обеспечивает широкому кругу (специалистов) участие в формировании систем массового участия. Значимость этих проблем настолько очевидна, что новая модель организационной деятельности способствует подготовки и реализации модели развития.
+                </div>
+            </div> <!-- end item -->
+
+        </div> <!-- end carousel  -->
+    </div> <!-- end container -->
+</section> <!-- end reviews-container -->
+
+<section id="contacts-container" class="contacts-container">
+    <div class="container">
+        <div class="contacts row">
+            <div class="item col-sm-4">
+                <div class="icon"><img src="images/icon-phone.png" alt=""></div>
+                <div class="txt">
+                    <a href="tel:87422228888">8(7422) 22-88-88</a><br>
+                    <a href="mailto:info@sitename.com">info@sitename.com</a>
+                </div>
+            </div>
+            <div class="item col-sm-4">
+                <div class="icon"><img src="images/icon-place.png" alt=""></div>
+                <div class="txt">
+                    г. Санкт-Петербург,<br>
+                    ул. Ленина д. 4
+                </div>
+            </div>
+            <div class="item col-sm-4">
+                <div class="icon"><img src="images/icon-clock.png" alt=""></div>
+                <div class="txt">пн–сб: 11:00–20:00 <br>вс: выходной</div>
+            </div>
+        </div>
+    </div> <!-- end container -->
+    <div id="map"></div>
+    <script src="https://api-maps.yandex.ru/2.1/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+    <script type="text/javascript">
+        ymaps.ready(function () {
+            var mapexMap = new ymaps.Map('map', {
+                center: [59.95983772717281, 30.30965775396717], // центр карты
+                zoom: 14, // масштаб
+                controls: ['zoomControl']
+            }),
+
+
+                myPlacemark = new ymaps.Placemark(
+                    [59.958611064161666, 30.309786499999877], // координаты маркера
+                    { "iconContent": "", "balloonContentBody": "г. Санкт-Петербург, ул. Ленина, д. 4", "balloonContentHeader": "Прокат инструмента" }, // контент маркера
+                    {
+                        // Опции.
+                        // Необходимо указать данный тип макета.
+                        iconLayout: 'default#image',
+                        // Своё изображение иконки метки.
+                        iconImageHref: 'images/map-marker.png',
+                        // Размеры метки.
+                        iconImageSize: [30, 42],
+                        // Смещение левого верхнего угла иконки относительно
+                        // её "ножки" (точки привязки).
+                        iconImageOffset: [-5, -38]
+                    });
+            mapexMap.behaviors.disable('scrollZoom');
+            mapexMap.geoObjects.add(myPlacemark);
+
+
+        });
+    </script>
+</section> <!-- end contacts-container -->

@@ -10,22 +10,22 @@ namespace Arenda.Tech.Models
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
-        [Display(Name = "Название продукта")]
+        [Display(Name = "Название товара")]
         public string? Name { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
-        [Display(Name = "Краткое описание продукта")]
+        [Display(Name = "Краткое описание товара")]
         public string? ShortDescription { get; set; }
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
-        [Display(Name = "Описание продукта")]
+        [Display(Name = "Полное описание продукта")]
         public string? Description { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
         [Display(Name = "Цена продукта")]
         public double Price { get; set; }
 
-        [Display(Name = "Старая цена продукта")]
-        public double? OldPrice { get; set; }
+        [Display(Name = "Залог")]
+        public double? NowPrice { get; set; }
 
         [Display(Name = "Изображение продукта")]
         public string? Images { get; set; }
@@ -35,11 +35,11 @@ namespace Arenda.Tech.Models
         public string? Type { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
-        [Display(Name = "Рэйтинг курса")]
+        [Display(Name = "Рэйтинг продукта")]
         public double Rating { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
-        [Display(Name = "Вступительное видео ссылка")]
+        [Display(Name = "Видеообзор видео ссылка")]
         public string? PreviewVideoLink { get; set; }
 
         [Required(ErrorMessage = "Это свойство обязательно к заполнению")]
